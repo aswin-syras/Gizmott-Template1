@@ -5,7 +5,7 @@ test('has title', async ({ page }) => {
   await page.goto('https://poppotv.gizmott.com/home');
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  await expect(page).toHaveTitle('Poppo TV');
 });
 
 //commensts for testing
