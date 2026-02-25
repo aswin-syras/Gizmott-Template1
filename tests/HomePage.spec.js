@@ -7,7 +7,6 @@ test('has title', async ({ page }) => {
   // Expect a title "to contain" a substring.
   await page.waitForTimeout(3000);
   await expect(page).toHaveTitle('Find What Feels Good');
-  await page.waitForTimeout(5000);
   await login(page);
 });
 // test('get started link', async ({ page }) => {
