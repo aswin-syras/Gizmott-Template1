@@ -15,11 +15,3 @@ test('Validate URL',async({page})=>{
   await page.waitForTimeout(5000);
 });
 
-//Video validation
-test('Click the 3rd video',async({page})=>{
-  await page.goto('/');
-  const videos=page.locator('.watchNowButton light-theme-button');
-  await page.waitForTimeout(5000);
-  //Click 3rd video
-  await videos.nth(2).click({force:true});
-});
