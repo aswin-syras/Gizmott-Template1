@@ -14,3 +14,11 @@ test('Validate URL',async({page})=>{
   await expect(page).toHaveURL('https://live.fwfg.gizmott.com/');
   await page.waitForTimeout(5000);
 });
+
+//Video validation
+test('Video validation'),async({page})=>{
+  await(page).goto('/');
+  const button=page.locator('#slideButton');
+  
+
+}
