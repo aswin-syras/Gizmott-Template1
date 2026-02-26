@@ -7,7 +7,15 @@ import { defineConfig, devices } from '@playwright/test';
  */
 import dotenv from 'dotenv';
 import path from 'path';
-dotenv.config({ path: './env/.env.staging' });
+// Read environment (default = staging)
+const env = process.env.TEST_ENV || 'staging';
+
+// Load correct env file
+dotenv.config({ path: `./env/.env.${env}` });
+
+console.log('Running tests in:', env);
+console.log('Base URL:', process.env.BASE_URL);
+
 
 /**
  * @see https://playwright.dev/docs/test-configuration
