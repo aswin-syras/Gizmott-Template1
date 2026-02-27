@@ -6,7 +6,8 @@
   "scripts": {
     "test": "playwright test",
     "test:staging": "cross-env TEST_ENV=staging playwright test",
-    "test:prod": "cross-env TEST_ENV=production playwright test"},
+    "test:prod": "cross-env TEST_ENV=production playwright test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aswin-syras/Gizmott-Template1.git"
