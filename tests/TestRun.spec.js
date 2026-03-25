@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 //import { login } from '../pages/Login.spec.js';
 import { loadPage } from '../testcases/PageLoad.spec.js';
 import { subUserLogin } from '../testcases/Subscribed.spec.js';
+import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
  
   test('Page Load', async ({ page }) => {
     await loadPage(page);
@@ -10,6 +11,11 @@ import { subUserLogin } from '../testcases/Subscribed.spec.js';
   test('Subscribed user', async ({ page }) => {
     await subUserLogin(page);
   });
+ 
+  test.only('Video Player', async ({ page }) => {
+    await videoPlayer(page);
+  });
+
   //await login(page, "richieblackmore03@gmail.com", "Aswinsyras@1234");
   // await subscribedUser(page);
   // await page.click('.background');
