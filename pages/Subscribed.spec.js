@@ -6,4 +6,8 @@ export async function subscribedUser(page){
     await page.locator('input[type=password]').fill("Aswinsyras@1234");
     await page.getByRole('button', { name: 'Sign In', exact: true }).click();
     await page.waitForTimeout(5000);
+    await page.getByText('Hi, Richie').click();
+    await page.getByText('Sign Out').click();
+    await page.waitForTimeout(5000);
+    await page.getByText('Sign In').click()
 }
