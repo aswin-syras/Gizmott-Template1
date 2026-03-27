@@ -17,7 +17,7 @@ export async function videoPlayer(page) {
     console.log('URL slug:', lasttext);  // "upper-spine-posture"
 
     let titleForCompare = videoTitleFormat.toLowerCase();
-    let textchange = lasttext.replaceAll("-", " ");  // Reverse for comparison
+    let textchange = lasttext.replaceAll("-", " ");  
 
     console.log(videoTitleFormat + " = " + textchange);
 

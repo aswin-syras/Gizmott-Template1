@@ -12,7 +12,7 @@ import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
     await subUserLogin(page);
   });
  
-  test.only('Video Player', async ({ page }) => {
+  test('Video Player', async ({ page }) => {
     await videoPlayer(page);
   });
 
