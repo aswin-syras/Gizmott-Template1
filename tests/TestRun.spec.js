@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 import { loadPage } from '../testcases/PageLoad.spec.js';
 import { subUserLogin } from '../testcases/Subscribed.spec.js';
 import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
+import { unsubscribedUser } from '../testcases/Unsubscribed.spec.js';
  
   test('Page Load', async ({ page }) => {
     await loadPage(page);
@@ -14,6 +15,10 @@ import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
  
   test('Video Player', async ({ page }) => {
     await videoPlayer(page);
+  });
+
+  test.only('UnSubscribed user', async ({ page }) => {
+    await unsubscribedUser(page);
   });
 
   //await login(page, "richieblackmore03@gmail.com", "Aswinsyras@1234");
