@@ -11,17 +11,9 @@ export async function unsubscribedUser(page) {
     await page.waitForURL('./'); 
     
     // Scroll and Click
-   // await page.pause();
-    await page.getByRole('heading', { name: 'Yoga for Heavy Hearts' }).nth(2).click();
+    await page.locator('.title').first().click();
     await page.getByLabel('Show Main Info').getByText('Watch Now').click();
-    /*const routesContainer = page.locator('.routesContainer');
-    await routesContainer.scrollIntoViewIfNeeded();
-    await page.locator('h1.title:has-text("Yoga for Heavy Hearts")').click();
-
     
-    // Click Watch Now
-    const detailsScreen=page.locator('[aria-label="Show Details Page"]');
-    await detailsScreen.getByRole('link', { name: 'Watch Now' }).click();*/
     
     // Validate final URL
     await expect(page).toHaveURL('https://live.fwfg.gizmott.com/checkout', { timeout: 10000 });
