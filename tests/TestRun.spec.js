@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
-//import { login } from '../pages/Login.spec.js';
 import { loadPage } from '../testcases/PageLoad.spec.js';
-import { subUserLogin } from '../testcases/Subscribed.spec.js';
+import { subscribedUser } from '../testcases/Subscribed.spec.js';
 import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
  
   test('Page Load', async ({ page }) => {
@@ -9,16 +8,24 @@ import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
   });
 
   test('Subscribed user', async ({ page }) => {
-    await subUserLogin(page);
+    await subscribedUser(page);
   });
  
-  test('Video Player', async ({ page }) => {
+  test.only('Video Player', async ({ page }) => {
     await videoPlayer(page);
-  });
+  }); 
 
-  //await login(page, "richieblackmore03@gmail.com", "Aswinsyras@1234");
-  // await subscribedUser(page);
-  // await page.click('.background');
-  // await page.getByLabel('Banner Slide 4').getByRole('button', { name: 'Watch Now' }).click();
-  // await expect(page).toHaveURL("https://live.fwfg.gizmott.com/show-details/kids-yoga-calm");
-  //await page.waitForTimeout(5000);
+  test.skip('Create auth state', async ({ page, context }) => {
+    const username = 'richieblackmore03@gmail.com';
+    const password = 'Aswinsyras@1234';
+    await page.goto('https://fwfg.com/');
+    await page.click('.signIn.black-text');
+    const userfield = page.locator('.light-email');
+    const uname = await userfield.fill(username); 
+    const pwd = await page.locator('input[type=password]').fill(password); 
+    await page.getByRole('button', { name: 'Sign In', exact: true }).click();
+    await page.waitForTimeout(3000);
+    
+    // Creates auth.json
+    await context.storageState({ path: './auth.json' });
+});

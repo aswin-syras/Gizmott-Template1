@@ -4,7 +4,7 @@ import { loadPage } from "./PageLoad.spec";
 
 export async function videoPlayer(page) {
     loadPage(page);
-    await login(page, "richieblackmore03@gmail.com", "Aswinsyras@1234");  
+    //await login(page, "richieblackmore03@gmail.com", "Aswinsyras@1234");  
     await page.mouse.wheel(0, 250);
     const videoTitle = await page.locator('//*[@id="main"]/div[7]/div/div[2]/div/div[2]/div/div[1]/div[1]/div/div/div[3]/h1').textContent();
     await page.locator('//*[@id="main"]/div[7]/div/div[2]/div/div[2]/div/div[1]/div[1]/div/div/div[3]/h1').click();

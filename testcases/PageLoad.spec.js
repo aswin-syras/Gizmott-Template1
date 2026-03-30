@@ -1,5 +1,4 @@
-import { expect } from "@playwright/test";
-import test from "node:test";
+import { test, expect } from "@playwright/test";
 
 export async function loadPage(page) {
     await page.goto('/');

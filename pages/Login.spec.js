@@ -1,5 +1,3 @@
-import test from "node:test";
-
 export async function login (page, username, password) {
     await page.click('.signIn.black-text');
     const userfield = page.locator('.light-email');

@@ -36,7 +36,8 @@ export default defineConfig({
   use: {
     trace: 'on-first-retry',
     //headless: false,
-    baseURL: process.env.BASE_URL
+    baseURL: process.env.BASE_URL,
+    //storageState: 'auth.json'
   },
 
   /* Configure projects for major browsers */
