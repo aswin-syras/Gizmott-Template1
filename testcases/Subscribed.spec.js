@@ -1,4 +1,5 @@
 import { login } from "../pages/Login.spec";
+import { logout } from "../pages/Logout.spec";
 import { loadPage } from "./PageLoad.spec";
 
 export async function subscribedUser(page){
@@ -8,4 +9,5 @@ export async function subscribedUser(page){
    // Save state
     await page.context().storageState({ path: 'auth.json' });
     console.log('✅ Auth saved to auth.json');
+    await logout(page);
 }

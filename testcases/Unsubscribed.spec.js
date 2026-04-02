@@ -1,6 +1,8 @@
 import { expect } from '@playwright/test'; // Added expect import
 import { loadPage } from './PageLoad.spec';
 import { login } from '../pages/Login.spec';
+import { logout } from '../pages/Logout.spec';
+
 
 export async function unsubscribedUser(page) {
         loadPage(page);
@@ -16,4 +18,5 @@ export async function unsubscribedUser(page) {
 
         // Validate final URL
         await expect(page).toHaveURL('https://live.fwfg.gizmott.com/checkout', { timeout: 10000 });
+        await logout(page);
 }
