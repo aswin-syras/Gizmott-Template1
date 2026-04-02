@@ -10,7 +10,7 @@ import { guestUser } from '../testcases/GuestUser.spec.js';
     await loadPage(page);
   });
 
-  test('Subscribed user', async ({ page }) => {
+  test.only('Subscribed user', async ({ page }) => {
     await subscribedUser(page);
   });
  
