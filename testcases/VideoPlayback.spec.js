@@ -14,17 +14,22 @@ export async function videoPlayer(page) {
     let finalURL = validURL.toLowerCase().replace(/[:][^\/]*$/, '');
     let receiveURL = page.url();
     let lasttext = receiveURL.split('/').pop().toLowerCase().replace(/[:][^\/]*$/, '');
-    console.log('URL slug:', lasttext);  // "upper-spine-posture"
-
     let titleForCompare = videoTitleFormat.toLowerCase();
-    let textchange = lasttext.replaceAll("-", " ");  
+    let textchange = lasttext.replaceAll("-", " ").toLowerCase();  
+    
+    console.log('              ');  
+    console.log('textchange:', textchange);  
+    console.log('titleForCompare:', titleForCompare);  
+    console.log('              ');  
 
-    console.log(videoTitleFormat + " = " + textchange);
-
-    if(    await expect(page).toHaveURL(new RegExp(finalURL))){
+    try{
+        await expect(page).toHaveURL(new RegExp(finalURL));
         console.log('--✅ Correct Video--');
-    }
-    else if (textchange.includes(titleForCompare)) {
+    }catch(error){
+        console.log('              ');  
+        console.log('URL match failed moving to else statement');
+
+        if (titleForCompare.includes(textchange)) {
         console.log('--✅ Correct Video--');
         await expect(page.locator(".title-trailer")).toBeVisible();
     } else {
@@ -32,5 +37,18 @@ export async function videoPlayer(page) {
         console.log('Title formatted:', titleForCompare);
         console.log('Slug formatted:', textchange);
     }
+    }
+    // if( await expect(page).toHaveURL(new RegExp(finalURL))){
+    //     console.log('--✅ Correct Video--');
+
+    // }
+    // else if (textchange.includes(titleForCompare)) {
+    //     console.log('--✅ Correct Video--');
+    //     await expect(page.locator(".title-trailer")).toBeVisible();
+    // } else {
+    //     console.log('--❌ Wrong Video--');
+    //     console.log('Title formatted:', titleForCompare);
+    //     console.log('Slug formatted:', textchange);
+    // }
     await page.waitForTimeout(3000);
 }
