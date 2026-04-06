@@ -10,6 +10,6 @@ export async function guestUser(page){
     //Click Watch Now
     await page.getByRole('button',{name:'Watch Now',exact:true}).first().click();
     //Validate final URL
-    await expect(page).toHaveURL('https://live.fwfg.gizmott.com/login',{timeout:10000});
+    await expect(page).toHaveURL(`${process.env.BASE_URL}/login`,{timeout:10000});
 
 }
