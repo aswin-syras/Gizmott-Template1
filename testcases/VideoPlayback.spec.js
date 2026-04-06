@@ -35,7 +35,7 @@ export async function videoPlayer(page) {
         } else {
         console.log('--❌ Wrong Video--');
         console.log('Title formatted:', titleForCompare);
-        console.log('Slug formatted:', textchange);
+        console.log('Text formatted:', textchange);
     }
     }
     await page.waitForTimeout(3000);
