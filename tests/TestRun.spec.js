@@ -22,11 +22,11 @@ import { guestUser } from '../testcases/GuestUser.spec.js';
     await unsubscribedUser(page);
   })
 
-  test ('Guest User',async({page})=>{
+  test('Guest User',async({page})=>{
     await guestUser(page);
   })
 
-  test.skip('Create auth state', async ({ page, context }) => {
+  test('Create auth state', async ({ page, context }) => {
     const username = 'richieblackmore03@gmail.com';
     const password = 'Aswinsyras@1234';
     await page.goto('https://fwfg.com/');
