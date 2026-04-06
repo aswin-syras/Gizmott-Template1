@@ -22,7 +22,7 @@ import { guestUser } from '../testcases/GuestUser.spec.js';
     await unsubscribedUser(page);
   })
 
-  test ('Guest User',async({page})=>{
+  test('Guest User',async({page})=>{
     await guestUser(page);
   })
 
