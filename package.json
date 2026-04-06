@@ -6,7 +6,8 @@
   "scripts": {
     "test": "playwright test",
     "test:staging": "cross-env TEST_ENV=staging playwright test",
-    "test:prod": "cross-env TEST_ENV=production playwright test"},
+    "test:prod": "cross-env TEST_ENV=production playwright test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aswin-syras/Gizmott-Template1.git"
@@ -20,9 +21,23 @@
   },
   "homepage": "https://github.com/aswin-syras/Gizmott-Template1#readme",
   "devDependencies": {
-    "@playwright/test": "^1.58.2",
+    "@playwright/test": "^1.59.1",
     "@types/node": "^25.2.3",
     "cross-env": "^10.1.0",
     "dotenv": "^17.3.1"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "cross-spawn": "^7.0.6",
+    "isexe": "^2.0.0",
+    "path-key": "^3.1.1",
+    "playwright": "^1.58.2",
+    "playwright-core": "^1.58.2",
+    "shebang-command": "^2.0.0",
+    "shebang-regex": "^3.0.0",
+    "undici-types": "^7.16.0",
+    "which": "^2.0.2"
   }
 }
