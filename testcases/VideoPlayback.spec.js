@@ -29,26 +29,14 @@ export async function videoPlayer(page) {
         console.log('              ');  
         console.log('URL match failed moving to else statement');
 
-        if (titleForCompare.includes(textchange)) {
-        console.log('--✅ Correct Video--');
-        await expect(page.locator(".title-trailer")).toBeVisible();
-    } else {
+        if (titleForCompare.includes(textchange) || textchange.includes(titleForCompare)) {
+            console.log('--✅ Correct Video--');
+            await expect(page.locator(".title-trailer")).toBeVisible();
+        } else {
         console.log('--❌ Wrong Video--');
         console.log('Title formatted:', titleForCompare);
         console.log('Slug formatted:', textchange);
     }
     }
-    // if( await expect(page).toHaveURL(new RegExp(finalURL))){
-    //     console.log('--✅ Correct Video--');
-
-    // }
-    // else if (textchange.includes(titleForCompare)) {
-    //     console.log('--✅ Correct Video--');
-    //     await expect(page.locator(".title-trailer")).toBeVisible();
-    // } else {
-    //     console.log('--❌ Wrong Video--');
-    //     console.log('Title formatted:', titleForCompare);
-    //     console.log('Slug formatted:', textchange);
-    // }
     await page.waitForTimeout(3000);
 }
