@@ -4,6 +4,7 @@ import { subscribedUser } from '../testcases/Subscribed.spec.js';
 import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
 import { unsubscribedUser } from '../testcases/Unsubscribed.spec.js';
 import { guestUser } from '../testcases/GuestUser.spec.js';
+import { search } from '../testcases/SearchResult.spec.js';
 
  
   test('Page Load', async ({ page }) => {
@@ -25,6 +26,11 @@ import { guestUser } from '../testcases/GuestUser.spec.js';
   test('Guest User',async({page})=>{
     await guestUser(page);
   })
+
+  test('Search Functionality', async ({ page }) => {
+    await loadPage(page);
+    await search(page);
+  });
 
   test.skip('Create auth state', async ({ page, context }) => {
     const username = 'richieblackmore03@gmail.com';
