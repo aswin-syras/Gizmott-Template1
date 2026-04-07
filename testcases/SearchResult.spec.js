@@ -1,3 +1,3 @@
-export function search(page) {
+export async function search(page) {
 
 }
