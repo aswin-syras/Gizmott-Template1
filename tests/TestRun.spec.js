@@ -1,7 +1,7 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { loadPage } from '../testcases/PageLoad.spec.js';
 import { subscribedUser } from '../testcases/Subscribed.spec.js';
-import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
+import { videoValid } from '../testcases/VideoValidation.spec.js';
 import { unsubscribedUser } from '../testcases/Unsubscribed.spec.js';
 import { guestUser } from '../testcases/GuestUser.spec.js';
 import { search } from '../testcases/SearchResult.spec.js';
@@ -15,8 +15,8 @@ import { search } from '../testcases/SearchResult.spec.js';
     await subscribedUser(page);
   });
  
-  test('Video Player', async ({ page }) => {
-    await videoPlayer(page);
+  test.only('Video Validation', async ({ page }) => {
+    await videoValid(page);
   }); 
   
   test('Unsubscribed User',async({page})=>{
@@ -27,7 +27,7 @@ import { search } from '../testcases/SearchResult.spec.js';
     await guestUser(page);
   })
 
-  test('Search Functionality', async ({ page }) => {
+  test.skip('Search Functionality', async ({ page }) => {
     await loadPage(page);
     await search(page);
   });

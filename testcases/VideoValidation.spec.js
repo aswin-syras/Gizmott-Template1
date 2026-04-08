@@ -1,7 +1,7 @@
 import { expect } from "@playwright/test";
 import { loadPage } from "./PageLoad.spec";
 
-export async function videoPlayer(page) {
+export async function videoValid(page) {
     loadPage(page);
     await page.mouse.wheel(0, 250);
     const videoTitle = await page.locator('//*[@id="main"]/div[7]/div/div[2]/div/div[2]/div/div[1]/div[1]/div/div/div[3]/h1').textContent();
