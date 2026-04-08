@@ -15,7 +15,7 @@ import { search } from '../testcases/SearchResult.spec.js';
     await subscribedUser(page);
   });
  
-  test.only('Video Validation', async ({ page }) => {
+  test('Video Validation', async ({ page }) => {
     await videoValid(page);
   }); 
   
@@ -27,7 +27,7 @@ import { search } from '../testcases/SearchResult.spec.js';
     await guestUser(page);
   })
 
-  test.skip('Search Functionality', async ({ page }) => {
+  test.only('Search Functionality', async ({ page }) => {
     await loadPage(page);
     await search(page);
   });
