@@ -32,7 +32,7 @@ import { search } from '../testcases/SearchResult.spec.js';
     await search(page);
   });
 
-  test.skip('Create auth state', async ({ page, context }) => {
+  test('Create auth state', async ({ page, context }) => {
     const username = 'richieblackmore03@gmail.com';
     const password = 'Aswinsyras@1234';
     await page.goto('https://fwfg.com/');
