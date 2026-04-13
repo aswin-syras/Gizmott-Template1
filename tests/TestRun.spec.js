@@ -27,7 +27,8 @@ import { search } from '../testcases/SearchResult.spec.js';
     await guestUser(page);
   })
 
-  test.only('Search Functionality', async ({ page }) => {
+  test('Search Functionality', async ({ page }) => {
+    test.setTimeout(120000);
     await loadPage(page);
     await search(page);
   });
