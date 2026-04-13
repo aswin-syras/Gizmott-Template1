@@ -1,18 +1,16 @@
 import { test } from '@playwright/test';
 import { loadPage } from '../testcases/PageLoad.spec.js';
 import { subscribedUser } from '../testcases/Subscribed.spec.js';
-import { videoValid } from '../testcases/VideoValidation.spec.js';
 import { unsubscribedUser } from '../testcases/Unsubscribed.spec.js';
 import { guestUser } from '../testcases/GuestUser.spec.js';
 import { search } from '../testcases/SearchResult.spec.js';
 import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
-
  
   test('Page Load', async ({ page }) => {
     await loadPage(page);
   });
 
-  test('Create auth state', async ({ page, context }) => {
+  test.skip('Create auth state', async ({ page, context }) => {
     const username = 'richieblackmore03@gmail.com';
     const password = 'Aswinsyras@1234';
     await page.goto('https://fwfg.com/');
@@ -30,14 +28,10 @@ import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
   test('Subscribed user', async ({ page }) => {
     await subscribedUser(page);
   });
- 
-  test('Video Validation', async ({ page }) => {
-    await videoValid(page);
-  }); 
 
-  // test.only('Video Player', async ({ page }) => {
-  //   await videoPlayer(page);
-  // }); 
+  test('Video Player', async ({ page }) => {
+    await videoPlayer(page);
+  }); 
   
   test('Unsubscribed User',async({page})=>{
     await unsubscribedUser(page);

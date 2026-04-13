@@ -1,20 +1,15 @@
-import { expect } from "@playwright/test";
-import { loadPage } from "./PageLoad.spec";
+import { expect } from "playwright/test";
 
-export async function videoValid(page) {
-    await loadPage(page);
-    await page.mouse.wheel(0, 250);
-    const videoTitle = await page.locator('//*[@id="main"]/div[7]/div/div[2]/div/div[2]/div/div[1]/div[1]/div/div/div[3]/h1').textContent();
-    await page.locator('//*[@id="main"]/div[7]/div/div[2]/div/div[2]/div/div[1]/div[1]/div/div/div[3]/h1').click();
-    let fullTitle = 'https://live.fwfg.gizmott.com/show-details/' + videoTitle;
+export async function showdetailsValidation(page, videoTitle) {
+    let videoURL = `${process.env.BASE_URL}/show-details/${videoTitle}`;
     let videoTitleFormat = videoTitle.replace(/[:][^\/]*$/, '');
-    let validURL = fullTitle.replaceAll(" ","-");
+    let validURL = videoURL.replaceAll(" ","-");
     let finalURL = validURL.toLowerCase().replace(/[:][^\/]*$/, '');
     let receiveURL = page.url();
     let lasttext = receiveURL.split('/').pop().toLowerCase().replace(/[:][^\/]*$/, '');
     let titleForCompare = videoTitleFormat.toLowerCase();
     let textchange = lasttext.replaceAll("-", " ").toLowerCase();  
-    
+
     console.log('              ');  
     console.log('textchange:', textchange);  
     console.log('titleForCompare:', titleForCompare);  
@@ -37,4 +32,8 @@ export async function videoValid(page) {
     }
     }
     await page.waitForTimeout(3000);
+}
+
+export async function videoURLvalidation(page, videoName, videoURL) {
+    await expect(page).toHaveURL(`${process.env.BASE_URL}/videos/${videoURL}`, { timeout: 5000 });
 }
