@@ -10,7 +10,7 @@ import { autoPlay, videoPlayer } from '../testcases/VideoPlayback.spec.js';
     await loadPage(page);
   });
 
-  test.skip('Create auth state', async ({ page, context }) => {
+  test('Create auth state', async ({ page, context }) => {
     const username = 'richieblackmore03@gmail.com';
     const password = 'Aswinsyras@1234';
     await page.goto('https://fwfg.com/');
@@ -45,7 +45,7 @@ import { autoPlay, videoPlayer } from '../testcases/VideoPlayback.spec.js';
     await videoPlayer(page);
   }); 
 
-  test.skip('Search Functionality', async ({ page }) => {
+  test('Search Functionality', async ({ page }) => {
     await loadPage(page);
     await search(page);
   });
