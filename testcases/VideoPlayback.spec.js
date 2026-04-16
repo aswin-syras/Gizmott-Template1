@@ -1,6 +1,6 @@
-import { videoURLvalidation } from "../pages/CheckUrl.spec";
-import { firstVideo } from "../pages/FirstVideo.spec";
-import { login } from "../pages/Login.spec";
+import { videoURLvalidation } from "../helpers/CheckUrl.spec";
+import { firstVideo } from "../helpers/FirstVideo.spec";
+import { login } from "../helpers/Login.spec";
 import { loadPage } from "./PageLoad.spec";
 
 export async function videoPlayer(page) {

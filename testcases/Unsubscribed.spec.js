@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test'; // Added expect import
 import { loadPage } from './PageLoad.spec';
-import { login } from '../pages/Login.spec';
-import { logout } from '../pages/Logout.spec';
+import { login } from '../helpers/Login.spec';
+import { logout } from '../helpers/Logout.spec';
 
 
 export async function unsubscribedUser(page) {

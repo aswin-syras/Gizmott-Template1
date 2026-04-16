@@ -1,5 +1,5 @@
-import { login } from "../pages/Login.spec";
-import { logout } from "../pages/Logout.spec";
+import { login } from "../helpers/Login.spec";
+import { logout } from "../helpers/Logout.spec";
 import { loadPage } from "./PageLoad.spec";
 
 export async function subscribedUser(page){
