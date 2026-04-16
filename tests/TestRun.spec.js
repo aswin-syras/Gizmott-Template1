@@ -4,7 +4,7 @@ import { subscribedUser } from '../testcases/Subscribed.spec.js';
 import { unsubscribedUser } from '../testcases/Unsubscribed.spec.js';
 import { guestUser } from '../testcases/GuestUser.spec.js';
 import { search } from '../testcases/SearchResult.spec.js';
-import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
+import { autoPlay, videoPlayer } from '../testcases/VideoPlayback.spec.js';
  
   test('Page Load', async ({ page }) => {
     await loadPage(page);
@@ -28,10 +28,6 @@ import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
   test('Subscribed user', async ({ page }) => {
     await subscribedUser(page);
   });
-
-  test('Video Player', async ({ page }) => {
-    await videoPlayer(page);
-  }); 
   
   test('Unsubscribed User',async({page})=>{
     await unsubscribedUser(page);
@@ -40,6 +36,14 @@ import { videoPlayer } from '../testcases/VideoPlayback.spec.js';
   test('Guest User',async({page})=>{
     await guestUser(page);
   })
+
+  test.only('Autoplay', async ({ page }) => {
+    await autoPlay(page);
+  });
+
+  test('Video Player', async ({ page }) => {
+    await videoPlayer(page);
+  }); 
 
   test.skip('Search Functionality', async ({ page }) => {
     await loadPage(page);

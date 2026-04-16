@@ -1,3 +1,4 @@
+import { expect } from "playwright/test";
 import { videoURLvalidation } from "../helpers/CheckUrl.spec";
 import { firstVideo } from "../helpers/FirstVideo.spec";
 import { login } from "../helpers/Login.spec";
@@ -23,4 +24,12 @@ export async function videoPlayer(page) {
     } else {
         console.log('\n--❌ Video is not playing--');
     }
+}
+
+export async function autoPlay(page){
+    await loadPage(page);
+    await login(page, "richieblackmore03@gmail.com", "123456");
+    await firstVideo(page);
+    await page.getByRole('button',{name:'Watch Now',exact:true}).first().click();
+    await expect(page.getByRole('button', { name: 'Play Video', exact: true })).toBeVisible({ timeout: 5000 });
 }
