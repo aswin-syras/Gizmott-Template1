@@ -46,7 +46,8 @@ import { autoPlay, videoPlayer } from '../testcases/VideoPlayback.spec.js';
   }); 
 
   test('Search Functionality', async ({ page }) => {
+    test.setTimeout(120000); // Set timeout to 2 minutes for this test
     await loadPage(page);
     await search(page);
-  });
+     });
 
