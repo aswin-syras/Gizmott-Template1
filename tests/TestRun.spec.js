@@ -37,7 +37,7 @@ import { autoPlay, videoPlayer } from '../testcases/VideoPlayback.spec.js';
     await guestUser(page);
   })
 
-  test.only('Autoplay', async ({ page }) => {
+  test('Autoplay', async ({ page }) => {
     await autoPlay(page);
   });
 
