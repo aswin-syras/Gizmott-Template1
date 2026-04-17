@@ -1,12 +1,10 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
-
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
 import dotenv from 'dotenv';
-import path from 'path';
 // Read environment (default = staging)
 const env = process.env.TEST_ENV || 'staging';
 
@@ -15,7 +13,8 @@ dotenv.config({ path: `./env/.env.${env}` });
 
 console.log('Running tests in:', env);
 console.log('Base URL:', process.env.BASE_URL);
-
+console.log('Username:', process.env.SUB_USERNAME); 
+console.log('Password:', process.env.SUB_PASSWORD); 
 
 /**
  * @see https://playwright.dev/docs/test-configuration

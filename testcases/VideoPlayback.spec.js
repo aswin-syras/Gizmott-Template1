@@ -3,10 +3,13 @@ import { videoURLvalidation } from "../helpers/CheckUrl.spec";
 import { firstVideo } from "../helpers/FirstVideo.spec";
 import { login } from "../helpers/Login.spec";
 import { loadPage } from "./PageLoad.spec";
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 export async function videoPlayer(page) {
     await loadPage(page);
-    await login(page, "richieblackmore03@gmail.com", "123456"); 
+    await login(page, process.env.SUB_USERNAME, process.env.SUB_PASSWORD); 
     await firstVideo(page);
     await page.getByRole('button',{name:'Watch Now',exact:true}).first().click();
     const videoName = await page.locator('h1.videoTitle').first().textContent();
@@ -28,7 +31,7 @@ export async function videoPlayer(page) {
 
 export async function autoPlay(page){
     await loadPage(page);
-    await login(page, "richieblackmore03@gmail.com", "123456");
+    await login(page, process.env.SUB_USERNAME, process.env.SUB_PASSWORD);
     await firstVideo(page);
     await page.getByRole('button',{name:'Watch Now',exact:true}).first().click();
     await expect(page.getByRole('button', { name: 'Play Video', exact: true })).toBeVisible({ timeout: 5000 });
