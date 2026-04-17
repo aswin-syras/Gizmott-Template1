@@ -35,7 +35,7 @@ for (const [i, word] of keywords.entries()) {
     } catch (error) {
         const nodata = page.getByRole('heading', { name: 'No data found' });
         await expect(nodata).toBeVisible();
-        console.log(`"${word}" → No results`);
+        console.log(`❌ "${word}" → No results`);
     }
 }
 }

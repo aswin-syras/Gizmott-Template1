@@ -4,7 +4,7 @@ import { loadPage } from "./PageLoad.spec";
 
 export async function subscribedUser(page){
   await loadPage(page);
-  await login(page, "richieblackmore03@gmail.com", "123456");
+  await login(page, process.env.SUB_USERNAME, process.env.SUB_PASSWORD);
 
    // Save state
     await page.context().storageState({ path: 'auth.json' });
