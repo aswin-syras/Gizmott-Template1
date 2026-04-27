@@ -41,7 +41,7 @@ import { autoPlay, videoPlayer } from '../testcases/VideoPlayback.spec.js';
     await autoPlay(page);
   });
 
-  test.only('Video Player', async ({ page }) => {
+  test('Video Player', async ({ page }) => {
     await videoPlayer(page);
   }); 
 
