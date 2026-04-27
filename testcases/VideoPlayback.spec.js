@@ -3,8 +3,7 @@ import { videoURLvalidation } from "../helpers/CheckUrl.spec";
 import { firstVideo } from "../helpers/FirstVideo.spec";
 import { login } from "../helpers/Login.spec";
 import { loadPage } from "./PageLoad.spec";
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 
 export async function videoPlayer(page) {
@@ -22,10 +21,12 @@ export async function videoPlayer(page) {
     await page.waitForTimeout(5000); // Play for 5 seconds
     const timerAfter5Seconds = await page.locator('span.vjs-remaining-time-display').textContent();
     console.log('Timer after 5 seconds:', timerAfter5Seconds);
-        if (timer !== timerAfter5Seconds) {    
+    if (timer !== timerAfter5Seconds) {    
         console.log('\n--✅ Video is playing--');
+        expect(true).toBe(true);
     } else {
         console.log('\n--❌ Video is not playing--');
+        expect(timer).not.toBe(timerAfter5Seconds);
     }
 }
 
