@@ -13,8 +13,6 @@ dotenv.config({ path: `./env/.env.${env}` });
 
 console.log('Running tests in:', env);
 console.log('Base URL:', process.env.BASE_URL);
-console.log('Username:', process.env.SUB_USERNAME); 
-console.log('Password:', process.env.SUB_PASSWORD); 
 
 /**
  * @see https://playwright.dev/docs/test-configuration
