@@ -4,8 +4,6 @@ import { firstVideo } from "../helpers/FirstVideo.spec";
 import { login } from "../helpers/Login.spec";
 import { loadPage } from "./PageLoad.spec";
 
-
-
 export async function videoPlayer(page) {
     await loadPage(page);
     await login(page, process.env.SUB_USERNAME, process.env.SUB_PASSWORD); 
