@@ -5,8 +5,8 @@ import { defineConfig, devices } from '@playwright/test';
  * https://github.com/motdotla/dotenv
  */
 import dotenv from 'dotenv';
-// Read environment (default = staging)
-const env = process.env.TEST_ENV || 'staging';
+// Read environment (default = production)
+const env = process.env.TEST_ENV || 'production';
 
 // Load correct env file
 dotenv.config({ path: `./env/.env.${env}` });
