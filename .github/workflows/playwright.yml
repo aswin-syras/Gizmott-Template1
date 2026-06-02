@@ -33,6 +33,9 @@ jobs:
     - name: Check Disk Space
       run: df -h
       
+    - name: Install Playwright Browsers
+      run: npx playwright install
+      
     - name: Run Playwright tests
       run: npx playwright test
       
