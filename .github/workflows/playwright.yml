@@ -27,8 +27,7 @@ jobs:
     - name: Install Playwright Browsers
       run: 
         # sudo apt-get update
-        npx playwright install --with-deps chromium 
-         # --with-deps installs necessary dependencies for running browsers in CI environments
+        DEBUG=pw:install npx playwright install --with-deps         # --with-deps installs necessary dependencies for running browsers in CI environments
          # You can specify which browsers to install (chromium, firefox, webkit) or omit to install all
     - name: Run Playwright tests
       run: npx playwright test
