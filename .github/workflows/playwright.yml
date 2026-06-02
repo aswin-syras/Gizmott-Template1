@@ -27,7 +27,7 @@ jobs:
     - name: Install Playwright Browsers
       run: 
         # sudo apt-get update
-        npx playwright install --with-deps
+        npx playwright install
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
