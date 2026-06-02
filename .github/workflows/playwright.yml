@@ -17,6 +17,8 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    container:
+      image: ://microsoft.com # Match your local Playwright version
     steps:
     - uses: actions/checkout@v5
     - uses: actions/setup-node@v5
@@ -25,7 +27,9 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      run: 
+        sudo apt-get update
+        npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
