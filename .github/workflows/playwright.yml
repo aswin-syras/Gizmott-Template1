@@ -55,6 +55,7 @@ jobs:
     - name: Install Playwright Browsers
       env:
         DEBIAN_FRONTEND: noninteractive
+        PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD_PROGRESS: 1
       run: npx playwright install chromium --with-deps
 
     - name: Run Playwright tests
