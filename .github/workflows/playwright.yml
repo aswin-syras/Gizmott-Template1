@@ -1,14 +1,15 @@
 name: Playwright Tests
+
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
   schedule:
-    - cron: '0 3 * * *' 
+    - cron: '0 3 * * *'
     - cron: '30 11 * * *'
-  workflow_dispatch:    
-  
+  workflow_dispatch:
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -17,29 +18,49 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
+    # 1. FORCE CLEAN HEAVY SYSTEM BLOAT TO RECLAIM DISK SPACE
+    - name: Free Disk Space
+      run: |
+        echo "=== Space BEFORE cleaning ==="
+        df -h /
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /usr/local/lib/android
+        sudo rm -rf /opt/ghc
+        sudo rm -rf /usr/local/share/boost
+        sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+        echo "=== Space AFTER cleaning ==="
+        df -h /
+
     - uses: actions/checkout@v6
-    
+
     - name: Set up Node.js
       uses: actions/setup-node@v6
       with:
         node-version: '24'
-        
+        cache: 'npm' # Speeds up runs and safely manages npm caches
+
     - name: version check
       run: node -v
-      
+
+    # 2. RUN INSTALL AND PURGE INTERMEDIATE PACKAGES
     - name: Install dependencies
-      run: npm ci
+      run: |
+        npm ci
+        npm cache clean --force # Prevents node package duplicates from eating your disk
 
     - name: Check Disk Space
       run: df -h
-      
+
+    # 3. FIX HANG BY INCLUDING DEBIAN FLAGS AND OPERATING SYSTEM DEPENDENCIES
     - name: Install Playwright Browsers
-      run: npx playwright install
-      
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: npx playwright install chromium --with-deps
+
     - name: Run Playwright tests
       run: npx playwright test
-      
-    - uses: actions/upload-artifact@v6 # 👈 Updated from v4 to v6 to fix the warning
+
+    - uses: actions/upload-artifact@v6
       if: ${{ !cancelled() }}
       with:
         name: playwright-report
