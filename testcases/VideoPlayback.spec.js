@@ -14,7 +14,7 @@ export async function videoPlayer(page) {
     await videoURLvalidation(page, videoName);
     const timer = await page.locator('span.vjs-remaining-time-display').textContent();
     console.log('\nVideo time:', timer);
-    await page.waitForTimeout(1000); 
+    await page.waitForTimeout(2000); 
     await page.locator('button.vjs-big-play-button').click();
     await page.waitForTimeout(5000); // Play for 5 seconds
     const timerAfter5Seconds = await page.locator('span.vjs-remaining-time-display').textContent();
