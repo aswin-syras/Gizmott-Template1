@@ -14,8 +14,12 @@ env:
 
 jobs:
   test:
-    timeout-minutes: 15 # 👈 Increased from 5 to 15 to give it time to install
+    timeout-minutes: 15
     runs-on: ubuntu-latest
+    # 👇 Force all steps in this job to bypass interactive package prompts
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      
     steps:
     - uses: actions/checkout@v6
     
@@ -30,12 +34,10 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    # 👇 1. Get the current Playwright version to use as a cache key
     - name: Get Playwright version
       id: playwright-version
       run: echo "PLAYWRIGHT_VERSION=$(node -p "require('@playwright/test/package.json').version")" >> $GITHUB_OUTPUT
 
-    # 👇 2. Check for cached browsers (saves ~2-3 minutes per run)
     - name: Cache Playwright Browsers
       id: playwright-cache
       uses: actions/cache@v4
@@ -45,22 +47,14 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-playwright-
       
-    # 👇 3. Only download browsers if they weren't found in the cache
-    - name: Install Playwright Browsers
+    # 👇 Combined into a clean conditional to prevent consecutive apt triggers
+    - name: Install Playwright Browsers & Deps
       if: steps.playwright-cache.outputs.cache-hit != 'true'
       run: npx playwright install --with-deps
 
-    # 👇 4. If browsers ARE cached, still install OS system dependencies just in case
-    - name: Install Playwright System Dependencies
+    - name: Install System Dependencies Only (Cache Hit)
       if: steps.playwright-cache.outputs.cache-hit == 'true'
       run: npx playwright install-deps
       
     - name: Run Playwright tests
       run: npx playwright test
-      
-    - uses: actions/upload-artifact@v6
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
