@@ -10,8 +10,8 @@ on:
     - cron: '30 11 * * *'
   workflow_dispatch:
 
-# env:
-#   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   test:
@@ -28,7 +28,7 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: 
-        sudo apt-get update
+        # sudo apt-get update
         npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
