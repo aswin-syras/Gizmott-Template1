@@ -15,7 +15,7 @@ env:
 
 jobs:
   test:
-    timeout-minutes: 120
+    timeout-minutes: 12
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
@@ -27,7 +27,7 @@ jobs:
     - name: Install Playwright Browsers
       run: 
         # sudo apt-get update
-        DEBUG=pw:install npx playwright install --with-deps         # --with-deps installs necessary dependencies for running browsers in CI environments
+        npx playwright install --no-shell chromium         # --with-deps installs necessary dependencies for running browsers in CI environments
          # You can specify which browsers to install (chromium, firefox, webkit) or omit to install all
     - name: Run Playwright tests
       run: npx playwright test
