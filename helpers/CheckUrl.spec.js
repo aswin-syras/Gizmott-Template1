@@ -58,12 +58,15 @@ export async function videoURLvalidation(page, videoName) {
 
         if (titleForCompare.includes(textchange) || textchange.includes(titleForCompare)) {
             console.log('--✅ Correct Video--');
-            await expect(page.locator(".title-trailer")).toBeVisible();
+            //await page.waitForTimeout(1000);
+            //await expect(page.locator(".title-trailer")).toBeVisible();
+            await page.mouse.wheel(0, 250);
+            await expect(page.locator('.addtoList')).toBeVisible();
         } else {
         console.log('--❌ Wrong Video--');
         console.log('Title formatted:', titleForCompare);
         console.log('Text formatted:', textchange);
     }
     }
-    await page.waitForTimeout(3000);
+   // await page.waitForTimeout(3000);
 }

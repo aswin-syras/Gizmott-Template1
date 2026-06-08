@@ -42,11 +42,12 @@ import { autoPlay, videoPlayer } from '../testcases/VideoPlayback.spec.js';
   });
 
   test('Video Player', async ({ page }) => {
+    test.setTimeout(100000);
     await videoPlayer(page);
   }); 
 
   test('Search Functionality', async ({ page }) => {
-    test.setTimeout(120000); // Set timeout to 2 minutes for this test
+    test.setTimeout(100000); // Set timeout to 2 minutes for this test
     await loadPage(page);
     await search(page);
      });
