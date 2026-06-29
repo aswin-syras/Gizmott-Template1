@@ -5,6 +5,7 @@ import { unsubscribedUser } from '../testcases/Unsubscribed.spec.js';
 import { guestUser } from '../testcases/GuestUser.spec.js';
 import { search } from '../testcases/SearchResult.spec.js';
 import { autoPlay, videoPlayer } from '../testcases/VideoPlayback.spec.js';
+import { legacySubscription } from '../testcases/Subscribed.spec.js';
  
   test('Page Load', async ({ page }) => {
     await loadPage(page);
@@ -27,6 +28,10 @@ import { autoPlay, videoPlayer } from '../testcases/VideoPlayback.spec.js';
 
   test('Subscribed user', async ({ page }) => {
     await subscribedUser(page);
+  });
+
+  test('Legacy Subscription', async ({ page }) => {
+    await legacySubscription(page);
   });
   
   test('Unsubscribed User',async({page})=>{
