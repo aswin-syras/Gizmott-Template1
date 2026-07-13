@@ -3,6 +3,7 @@ import { videoURLvalidation } from "../helpers/CheckUrl.spec";
 import { firstVideo } from "../helpers/FirstVideo.spec";
 import { login } from "../helpers/Login.spec";
 import { loadPage } from "./PageLoad.spec";
+import { type } from "node:os";
 
 export async function videoPlayer(page) {
     await loadPage(page);

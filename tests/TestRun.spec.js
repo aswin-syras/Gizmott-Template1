@@ -6,6 +6,9 @@ import { guestUser } from '../testcases/GuestUser.spec.js';
 import { search } from '../testcases/SearchResult.spec.js';
 import { autoPlay, videoPlayer } from '../testcases/VideoPlayback.spec.js';
 import { legacySubscription } from '../testcases/Subscribed.spec.js';
+import { seekFunctionality } from '../testcases/VideoPlayback.spec.js';
+import { subUsercommunityAccess } from '../testcases/Community.spec.js';
+import { unsubUsercommunityAccess } from '../testcases/Community.spec.js';
  
   test('Page Load', async ({ page }) => {
     await loadPage(page);
@@ -50,6 +53,14 @@ import { legacySubscription } from '../testcases/Subscribed.spec.js';
     test.setTimeout(100000);
     await videoPlayer(page);
   }); 
+
+  test('Community Access For Subscribed Users', async ({ page, context }) => {
+    await subUsercommunityAccess(page,context);
+  });
+
+  test('Community Access For Unsubscribed Users', async ({ page, context }) => {
+    await unsubUsercommunityAccess(page,context);
+  });
 
   test('Search Functionality', async ({ page }) => {
     test.setTimeout(100000); // Set timeout to 2 minutes for this test

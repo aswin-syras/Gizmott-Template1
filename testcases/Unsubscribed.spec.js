@@ -6,7 +6,7 @@ import { logout } from '../helpers/Logout.spec';
 
 export async function unsubscribedUser(page) {
         loadPage(page);
-        await login(page, "thomas@gmail.com", "Temp@123");
+        await login(page, process.env.UNSUB_USERNAME, process.env.UNSUB_PASSWORD);
 
         // Scroll and Click
         const firstVideo = page.locator('.showCardContainer').first();
