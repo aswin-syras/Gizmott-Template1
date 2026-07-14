@@ -54,7 +54,7 @@ import { unsubUsercommunityAccess } from '../testcases/Community.spec.js';
     await videoPlayer(page);
   }); 
 
-  test.only('Community Access For Subscribed Users', async ({ page, context }) => {
+  test('Community Access For Subscribed Users', async ({ page, context }) => {
     await subUsercommunityAccess(page,context);
   });
 
