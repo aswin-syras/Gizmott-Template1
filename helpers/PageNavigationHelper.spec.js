@@ -9,3 +9,10 @@ export async function navigateToCommunity(page, context){
     await expect(newTab).toHaveURL(`${process.env.BASE_URL}/community`);
     await expect(newTab.locator('span', { hasText: 'Create' })).toBeVisible();
 }
+
+export async function navigateToCalendar(page){
+    await page.locator('span', { hasText: 'Calendar' }).first().click();
+    await page.waitForTimeout(3000);
+    await expect(page).toHaveURL(`${process.env.BASE_URL}/calendar`);
+    await expect(page.locator('.add-video-btn.not-gaia',)).toBeVisible();
+}

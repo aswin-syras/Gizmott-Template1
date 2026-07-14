@@ -9,6 +9,7 @@ import { legacySubscription } from '../testcases/Subscribed.spec.js';
 import { seekFunctionality } from '../testcases/VideoPlayback.spec.js';
 import { subUsercommunityAccess } from '../testcases/Community.spec.js';
 import { unsubUsercommunityAccess } from '../testcases/Community.spec.js';
+import { openCalendar } from '../testcases/Calendar.spec.js';
  
   test('Page Load', async ({ page }) => {
     await loadPage(page);
@@ -44,6 +45,10 @@ import { unsubUsercommunityAccess } from '../testcases/Community.spec.js';
   test('Guest User',async({page})=>{
     await guestUser(page);
   })
+
+  test('Calendar Page Load', async ({ page }) => {
+    await openCalendar(page);
+  });
 
   test('Autoplay', async ({ page }) => {
     await autoPlay(page);

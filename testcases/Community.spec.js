@@ -1,7 +1,7 @@
 import { expect } from "@playwright/test";
 import { loadPage } from "./PageLoad.spec";
 import { login } from "../helpers/Login.spec.js";
-import { navigateToCommunity } from "../helpers/CommunityHelper.spec.js";
+import { navigateToCommunity } from "../helpers/PageNavigationHelper.spec.js";
 
 export async function subUsercommunityAccess(page,  context) {
     await loadPage(page);
