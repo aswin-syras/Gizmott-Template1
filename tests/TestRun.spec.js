@@ -59,6 +59,11 @@ import { openCalendar } from '../testcases/Calendar.spec.js';
     await videoPlayer(page);
   }); 
 
+  test.only('Seek Functionality', async ({ page }) => {
+    test.setTimeout(100000);
+    await seekFunctionality(page);
+  });
+
   test('Community Access For Subscribed Users', async ({ page, context }) => {
     await subUsercommunityAccess(page,context);
   });
