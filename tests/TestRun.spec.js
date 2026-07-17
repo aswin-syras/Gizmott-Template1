@@ -59,7 +59,7 @@ import { openCalendar } from '../testcases/Calendar.spec.js';
     await videoPlayer(page);
   }); 
 
-  test.only('Seek Functionality', async ({ page }) => {
+  test('Seek Functionality', async ({ page }) => {
     test.setTimeout(100000);
     await seekFunctionality(page);
   });
