@@ -10,6 +10,9 @@ import { seekFunctionality } from '../testcases/VideoPlayback.spec.js';
 import { subUsercommunityAccess } from '../testcases/Community.spec.js';
 import { unsubUsercommunityAccess } from '../testcases/Community.spec.js';
 import { openCalendar } from '../testcases/Calendar.spec.js';
+const MailosaurClient = require('mailosaur');
+require('dotenv').config();
+import { emailLogin } from '../testcases/Subscribed.spec.js';
  
   test('Page Load', async ({ page }) => {
     await loadPage(page);
@@ -78,3 +81,12 @@ import { openCalendar } from '../testcases/Calendar.spec.js';
     await search(page);
      });
 
+  test.only('Email Sign-in', async ({ page }) => {
+    const SERVER_ID = process.env.MAILOSAUR_SERVER_ID;
+    const SERVER_DOMAIN = `${SERVER_ID}.mailosaur.net`;
+    const API_KEY = process.env.MAILOSAUR_API_KEY;
+    const mailosaur = new MailosaurClient(API_KEY);
+    //const uniqueTestEmail = `user-${Date.now()}@${SERVER_DOMAIN}`;
+    const uniqueTestEmail = `testmail@${SERVER_ID}.mailosaur.net`;
+    await emailLogin(page, uniqueTestEmail, mailosaur, SERVER_ID);
+  });

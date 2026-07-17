@@ -16,3 +16,4 @@ export async function navigateToCalendar(page){
     await expect(page).toHaveURL(`${process.env.BASE_URL}/calendar`);
     await expect(page.locator('.add-video-btn.not-gaia',)).toBeVisible();
 }
+
