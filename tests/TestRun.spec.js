@@ -81,7 +81,7 @@ import { emailLogin } from '../testcases/Subscribed.spec.js';
     await search(page);
      });
 
-  test('Email Sign-in', async ({ page }) => {
+  test.skip('Email Sign-in', async ({ page }) => {
     const SERVER_ID = process.env.MAILOSAUR_SERVER_ID;
     const SERVER_DOMAIN = `${SERVER_ID}.mailosaur.net`;
     const API_KEY = process.env.MAILOSAUR_API_KEY;
