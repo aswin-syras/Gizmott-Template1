@@ -13,7 +13,7 @@ export async function navigateToCommunity(page, context){
 export async function navigateToCalendar(page){
     await page.locator('span', { hasText: 'Calendar' }).first().click();
     await page.waitForTimeout(3000);
-    await expect(page).toHaveURL(`${process.env.BASE_URL}/calendar`);
+    await expect(page).toHaveURL(`${process.env.BASE_URL}calendar`);
     await expect(page.locator('.add-video-btn.not-gaia',)).toBeVisible();
 }
 

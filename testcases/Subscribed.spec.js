@@ -28,7 +28,7 @@ export async function legacySubscription(page){
   await firstVideo(page);
   await page.getByRole('button',{name:'Watch Now',exact:true}).first().click();
   const URLvideo = await page.url();
-  const checkurl = URLvideo.includes(`${process.env.BASE_URL}/videos/`);
+  const checkurl = URLvideo.includes(`${process.env.BASE_URL}videos/`);
   if(checkurl){
     console.log('--✅ Legacy user able to watch video--');
   }else{

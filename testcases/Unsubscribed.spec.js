@@ -17,6 +17,6 @@ export async function unsubscribedUser(page) {
         await page.getByRole('button',{name:'Watch Now',exact:true}).first().click();
 
         // Validate final URL
-        await expect(page).toHaveURL(`${process.env.BASE_URL}/checkout`, { timeout: 10000 });
+        await expect(page).toHaveURL(`${process.env.BASE_URL}checkout`, { timeout: 10000 });
         await logout(page);
 }
