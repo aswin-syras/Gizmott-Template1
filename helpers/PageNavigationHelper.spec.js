@@ -6,7 +6,7 @@ export async function navigateToCommunity(page, context){
     await page.waitForTimeout(3000);
     const newTab = await pagePromise;
     await newTab.waitForLoadState(); 
-    await expect(newTab).toHaveURL(`${process.env.BASE_URL}/community`);
+    await expect(newTab).toHaveURL(`${process.env.BASE_URL}community`);
     await expect(newTab.locator('span', { hasText: 'Create' })).toBeVisible();
 }
 

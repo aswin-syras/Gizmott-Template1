@@ -18,7 +18,7 @@ export async function unsubUsercommunityAccess(page,  context) {
     await page.waitForTimeout(3000);
     const newTab = await pagePromise;
     await newTab.waitForLoadState(); 
-    await expect(newTab).toHaveURL(`${process.env.BASE_URL}/checkout`);
+    await expect(newTab).toHaveURL(`${process.env.BASE_URL}checkout`);
     console.log('--✅ Unsubscribed users navigate to checkout --');
 }
 
