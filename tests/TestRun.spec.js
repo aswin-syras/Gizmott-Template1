@@ -10,6 +10,7 @@ import { seekFunctionality } from '../testcases/VideoPlayback.spec.js';
 import { subUsercommunityAccess } from '../testcases/Community.spec.js';
 import { unsubUsercommunityAccess } from '../testcases/Community.spec.js';
 import { openCalendar } from '../testcases/Calendar.spec.js';
+import { favorites } from '../testcases/Favorites.spec.js';
 const MailosaurClient = require('mailosaur');
 require('dotenv').config();
 import { emailLogin } from '../testcases/Subscribed.spec.js';
@@ -80,6 +81,10 @@ import { emailLogin } from '../testcases/Subscribed.spec.js';
     await loadPage(page);
     await search(page);
      });
+
+  test('Add to Favorites', async ({ page }) => {
+    await favorites(page);
+  });
 
   test.skip('Email Sign-in', async ({ page }) => {
     const SERVER_ID = process.env.MAILOSAUR_SERVER_ID;
