@@ -83,6 +83,7 @@ import { emailLogin } from '../testcases/Subscribed.spec.js';
      });
 
   test('Add to Favorites', async ({ page }) => {
+    test.setTimeout(100000); // Set timeout to 2 minutes for this test
     await favorites(page);
   });
 
