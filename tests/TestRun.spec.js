@@ -11,6 +11,8 @@ import { subUsercommunityAccess } from '../testcases/Community.spec.js';
 import { unsubUsercommunityAccess } from '../testcases/Community.spec.js';
 import { openCalendar } from '../testcases/Calendar.spec.js';
 import { favorites } from '../testcases/Favorites.spec.js';
+import { playlist } from '../testcases/Favorites.spec.js';
+
 const MailosaurClient = require('mailosaur');
 require('dotenv').config();
 import { emailLogin } from '../testcases/Subscribed.spec.js';
@@ -85,6 +87,11 @@ import { emailLogin } from '../testcases/Subscribed.spec.js';
   test('Add to Favorites', async ({ page }) => {
     test.setTimeout(100000);
     await favorites(page);
+  });
+
+  test('Playlist Creation', async ({ page }) => {
+    test.setTimeout(100000);
+    await playlist(page);
   });
 
   test.skip('Email Sign-in', async ({ page }) => {
