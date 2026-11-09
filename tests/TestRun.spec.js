@@ -91,7 +91,7 @@ import { emailLogin } from '../testcases/Subscribed.spec.js';
 
   test('Playlist Creation', async ({ page }) => {
     test.setTimeout(100000);
-    await playlist(page);
+    await playlist(page, 'New Playlist');
   });
 
   test.skip('Email Sign-in', async ({ page }) => {
